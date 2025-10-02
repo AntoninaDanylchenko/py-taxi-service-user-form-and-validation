@@ -23,4 +23,10 @@
       <p>No cars!</p>
     {% endfor %}
   </div>
+    <a href="{% url 'taxi:driver-update-license' pk=driver.id %}" class="btn btn-primary">
+      Update license number
+    </a>
+    <a href="{% url 'taxi:driver-delete' pk=driver.id %}" class="btn btn-primary btn-danger">
+      Delete
+    </a>
 {% endblock %}
