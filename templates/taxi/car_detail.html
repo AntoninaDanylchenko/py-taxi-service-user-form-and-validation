@@ -14,12 +14,16 @@
   </h1>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1 style="display:inline;">Drivers </h1>
-  <form action="{% url "taxi:toggle-driver-to-car" car.pk %}" method="post" style="display:inline;">
+  <form action="{% url 'taxi:toggle-driver-to-car' car.pk %}" method="post" style="display:inline;">
     {% csrf_token %}
     {% if user in car.drivers.all %}
-      <button type="submit"  class="btn btn-danger link-to-page">Remove me from this car</button>
+      <button type="submit" class="btn btn-danger link-to-page">
+        Delete me from this car
+      </button>
     {% else %}
-      <button type="submit"  class="btn btn-primary link-to-page">Assign me to this car.</button>
+      <button type="submit" class="btn btn-primary link-to-page">
+        Assign me to this car
+      </button>
     {% endif %}
   </form>
   <hr>
